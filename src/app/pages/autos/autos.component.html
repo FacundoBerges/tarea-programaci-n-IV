@@ -1,10 +1,10 @@
 <h1 class="text-center mt-3">Autos</h1>
 
-<app-alta-auto />
+<app-alta-auto (autoEmitterRef)="alAgregarAuto($event)" />
 
 <div class="hr"></div>
 
-<app-detalle-auto />
+<app-detalle-auto [autoSeleccionado]="autoSeleccionado" (eliminarEmitterRef)="alEliminar($event)" />
 
 <div class="hr"></div>
 

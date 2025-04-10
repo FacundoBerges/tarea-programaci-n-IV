@@ -15,7 +15,16 @@ export class AutosComponent {
   public autos: Auto[] = [];
   public autoSeleccionado?: Auto;
 
+  public alAgregarAuto(auto: Auto): void {
+    this.autos.push(auto);
+  }
+
   public alSeleccionarAuto(auto: Auto): void {
     this.autoSeleccionado = auto;
+  }
+
+  public alEliminar(auto: Auto): void {
+    this.autos = this.autos.filter((a) => a !== auto);
+    this.autoSeleccionado = undefined;
   }
 }

@@ -4,10 +4,14 @@
   <div class="container">
     <ul>
       @for (auto of autos(); track $index) {
-        <li>
+        <li class="mx-2">
           <h3>{{ auto.marca }} {{ auto.modelo }}</h3>
+
           <p>Precio: {{ auto.precio | currency }}</p>
-          <button (click)="seleccionarAuto(auto)">Ver</button>
+          
+          <div class="d-flex justify-content-end">
+            <button (click)="seleccionarAuto(auto)" class="btn btn-outline-primary">Ver</button>
+          </div>
         </li>
       }
       @empty {
