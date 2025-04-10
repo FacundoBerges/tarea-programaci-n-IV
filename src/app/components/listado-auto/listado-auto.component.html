@@ -3,16 +3,13 @@
 
   <div class="container">
     <ul>
-      @for (auto of autos; track $index) {
+      @for (auto of autos(); track $index) {
         <li>
           <h3>{{ auto.marca }} {{ auto.modelo }}</h3>
           <p>Precio: {{ auto.precio | currency }}</p>
-          <p>Color: {{ auto.color }}</p>
-          <p>Puertas: {{ auto.puertas }}</p>
-          <p>Transmision: {{ auto.transmision }}</p>
-          <button (click)="eliminar(auto)">Eliminar</button>
+          <button (click)="seleccionarAuto(auto)">Ver</button>
         </li>
-      } 
+      }
       @empty {
         <li>
           <h3>No hay autos disponibles</h3>

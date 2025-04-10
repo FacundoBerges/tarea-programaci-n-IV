@@ -2,7 +2,8 @@
 
 :host {
   --bg-color: var(--secondary);
-  --circle-color: #48a9e6;
+  --circle-color: var(--primary);
+  // --circle-color: #48a9e6;
 }
 
 section {
