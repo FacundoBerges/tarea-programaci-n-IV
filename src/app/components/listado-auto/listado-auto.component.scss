@@ -1,0 +1,17 @@
+h2 {
+  color: var(--secondary);
+}
+
+li {
+  &:has(h3.no-item) {
+    list-style: none;
+  }
+
+  h3 {
+    color: var(--dark);
+
+    &.no-item {
+      color: var(--primary);
+    }
+  }
+}
