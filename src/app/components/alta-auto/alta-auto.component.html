@@ -17,6 +17,6 @@
       <input type="number" id="precio" min="0" [(ngModel)]="auto.precio" name="precio" class="form-control" />
     </div>
 
-    <button type="submit" class="btn btn-primary">Agregar Auto</button>
+    <button type="submit" class="btn btn-primary" (submit)="onSubmit()">Agregar Auto</button>
   </form>
 </section>

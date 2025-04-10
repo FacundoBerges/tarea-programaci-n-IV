@@ -18,6 +18,8 @@ export class AltaAutoComponent {
   };
 
   public onSubmit(): void {
+    console.log('Auto a agregar:', this.auto);
+
     if (!this._isValidAuto()) return;
 
     this.autoEmitterRef.emit(this.auto);
