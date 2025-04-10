@@ -1,20 +1,20 @@
 <section class="container">
   <h2>Alta de auto</h2>
 
-  <form class="container" (submit)="onSubmit()">
+  <form [formGroup]="formularioAlta" class="container" (submit)="onSubmit()">
     <div class="form-group">
       <label for="marca">Marca</label>
-      <input type="text" id="marca" [(ngModel)]="auto.marca" name="marca" class="form-control" />
+      <input formControlName="marca" type="text" id="marca" name="marca" class="form-control" />
     </div>
 
     <div class="form-group">
       <label for="modelo">Modelo</label>
-      <input type="text" id="modelo" [(ngModel)]="auto.modelo" name="modelo" class="form-control" />
+      <input formControlName="modelo" type="text" id="modelo" name="modelo" class="form-control" />
     </div>
 
     <div class="form-group">
       <label for="precio">Precio</label>
-      <input type="number" id="precio" min="0" [(ngModel)]="auto.precio" name="precio" class="form-control" />
+      <input formControlName="precio" type="number" id="precio" min="0" name="precio" class="form-control" />
     </div>
 
     <button type="submit" class="btn btn-primary">Agregar Auto</button>

@@ -1,38 +1,52 @@
 import { Component, output, OutputEmitterRef } from '@angular/core';
+import {
+  FormsModule,
+  ReactiveFormsModule,
+  FormBuilder,
+  Validators,
+  FormGroup,
+} from '@angular/forms';
 
 import { Auto } from '../../interfaces/auto';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-alta-auto',
-  imports: [FormsModule],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './alta-auto.component.html',
   styleUrl: './alta-auto.component.scss',
 })
 export class AltaAutoComponent {
+  private _formBuilder: FormBuilder = new FormBuilder();
   public readonly autoEmitterRef: OutputEmitterRef<Auto> = output<Auto>();
-  public auto: Auto = {
-    marca: '',
-    modelo: '',
-    precio: 0,
-  };
+  public formularioAlta: FormGroup = this._formBuilder.group({
+    marca: ['', [Validators.required, Validators.minLength(2)]],
+    modelo: ['', [Validators.required, Validators.minLength(2)]],
+    precio: [0, [Validators.required, Validators.min(1)]],
+  });
 
-  public onSubmit(): void {
-    if (!this._isValidAuto()) return;
-
-    this.autoEmitterRef.emit(this.auto);
-    this.auto = {
-      marca: '',
-      modelo: '',
-      precio: 0,
-    };
+  public get marca() {
+    return this.formularioAlta.get('marca');
   }
 
-  private _isValidAuto(): boolean {
-    return (
-      this.auto.marca.length > 0 &&
-      this.auto.modelo.length > 0 &&
-      this.auto.precio > 0
-    );
+  public get modelo() {
+    return this.formularioAlta.get('modelo');
+  }
+
+  public get precio() {
+    return this.formularioAlta.get('precio');
+  }
+
+  public onSubmit(): void {
+    this.formularioAlta.markAllAsTouched();
+    if (!this.formularioAlta.valid) return;
+
+    const auto: Auto = {
+      marca: this.marca?.value,
+      modelo: this.modelo?.value,
+      precio: this.precio?.value,
+    };
+
+    this.autoEmitterRef.emit(auto);
+    this.formularioAlta.reset();
   }
 }
