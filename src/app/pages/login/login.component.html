@@ -1,1 +1,67 @@
-<p>login works!</p>
+<div class="materialContainer">
+  <div class="box" #boxElement>
+    <div class="title">LOGIN</div>
+
+    <div class="input" #inputContainer>
+      <label for="name" #labelElement>Username</label>
+
+      <input type="text" name="name" id="name" #inputElement>
+
+      <span class="spin" #spinElement></span>
+    </div>
+
+    <div class="input" #inputContainer>
+      <label for="pass" #labelElement>Password</label>
+
+      <input type="password" name="pass" id="pass" #inputElement>
+
+      <span class="spin" #spinElement></span>
+    </div>
+
+    <div class="button login" #loginButton>
+      <button>
+        <span>GO</span> <i class="fa fa-check"></i>
+      </button>
+    </div>
+
+    <a href="" class="pass-forgot">Forgot your password?</a>
+  </div>
+
+  <div class="overbox" #overboxElement>
+    <div class="material-button alt-2" #alt2Button>
+      <span class="shape" #shapeElement></span>
+    </div>
+
+    <div class="title">REGISTER</div>
+
+    <div class="input" #inputContainer>
+      <label for="regname" #labelElement>Username</label>
+
+      <input type="text" name="regname" id="regname" #inputElement>
+
+      <span class="spin" #spinElement></span>
+    </div>
+
+    <div class="input" #inputContainer>
+      <label for="regpass" #labelElement>Password</label>
+
+      <input type="password" name="regpass" id="regpass" #inputElement>
+
+      <span class="spin" #spinElement></span>
+    </div>
+
+    <div class="input" #inputContainer>
+      <label for="reregpass" #labelElement>Repeat Password</label>
+
+      <input type="password" name="reregpass" id="reregpass" #inputElement>
+
+      <span class="spin" #spinElement></span>
+    </div>
+
+    <div class="button">
+      <button>
+        <span>NEXT</span>
+      </button>
+    </div>
+  </div>
+</div>
