@@ -1,1 +1,23 @@
-<p>listado-auto works!</p>
+<section class="container">
+  <h2>Listado de autos</h2>
+
+  <div class="container">
+    <ul>
+      @for (auto of autos; track $index) {
+        <li>
+          <h3>{{ auto.marca }} {{ auto.modelo }}</h3>
+          <p>Precio: {{ auto.precio | currency }}</p>
+          <p>Color: {{ auto.color }}</p>
+          <p>Puertas: {{ auto.puertas }}</p>
+          <p>Transmision: {{ auto.transmision }}</p>
+          <button (click)="eliminar(auto)">Eliminar</button>
+        </li>
+      } 
+      @empty {
+        <li>
+          <h3>No hay autos disponibles</h3>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
