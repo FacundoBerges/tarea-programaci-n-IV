@@ -2,7 +2,6 @@ import {
   Component,
   input,
   InputSignal,
-  OnInit,
   output,
   OutputEmitterRef,
 } from '@angular/core';
@@ -16,16 +15,10 @@ import { Auto } from '../../interfaces/auto';
   templateUrl: './listado-auto.component.html',
   styleUrl: './listado-auto.component.scss',
 })
-export class ListadoAutoComponent implements OnInit {
+export class ListadoAutoComponent {
   public autoEmmiterRef: OutputEmitterRef<Auto> = output<Auto>();
-  public autoSeleccionado?: Auto;
   public autos: InputSignal<Auto[]> = input<Auto[]>([]);
-
-  ngOnInit(): void {
-    if (!this.autos) {
-      throw new Error('Autos input is required');
-    }
-  }
+  public autoSeleccionado?: Auto;
 
   public seleccionarAuto(auto: Auto): void {
     this.autoSeleccionado = auto;

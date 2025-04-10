@@ -13,4 +13,9 @@ import { ListadoAutoComponent } from '../../components/listado-auto/listado-auto
 })
 export class AutosComponent {
   public autos: Auto[] = [];
+  public autoSeleccionado?: Auto;
+
+  public alSeleccionarAuto(auto: Auto): void {
+    this.autoSeleccionado = auto;
+  }
 }
